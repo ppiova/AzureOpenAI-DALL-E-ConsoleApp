@@ -1,6 +1,8 @@
-# AOAI-Dalle3-ConsoleApp
+# Azure OpenAI-DALL-E3-ConsoleApp
 
-This console application demonstrates how to generate images using [Azure OpenAI’s DALL-E 3](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/models#dall%C3%A9) API from a .NET 7 console project.
+This entry is part of the **[AI Advent Calendar 2024](https://dev.to/roberto_navarro_mate/calendario-de-adviento-de-inteligencia-artificial-2024-en-espanol-bdb)**.
+
+This console application demonstrates how to generate images using [Azure OpenAI’s DALL-E 3](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/models#dall%C3%A9) API from a .NET 9 console project.
 
 ## Table of Contents
 1. [Prerequisites](#prerequisites)  
@@ -16,7 +18,7 @@ This console application demonstrates how to generate images using [Azure OpenAI
 
 ## Prerequisites
 
-1. **.NET 7** (or a compatible .NET version) installed on your machine.  
+1. **.NET 9** (or a compatible .NET version) installed on your machine.  
    - You can download it from [https://dotnet.microsoft.com/en-us/download](https://dotnet.microsoft.com/en-us/download).
 2. An **Azure OpenAI Resource** that has a **DALL-E 3** deployment.  
    - You must have your resource name, deployment name, and API key from the Azure Portal.  
@@ -97,31 +99,43 @@ AzureOpenAI-DALL-E-ConsoleApp/
 
 1. Load environment variables:
 
-- At the top of Main, we use DotNetEnv.Env.Load() to read key-value pairs from the .env file.
-- Environment.GetEnvironmentVariable(...) retrieves these values later in the code.
+   - At the top of Main, we use DotNetEnv.Env.Load() to read key-value pairs from the .env file.
+   - Environment.GetEnvironmentVariable(...) retrieves these values later in the code.
 
 2. Prompt the user for image details:
 
-- We ask for a descriptive prompt, image size, style, quality, and response format.
-- Each choice sets the respective property in our DalleRequestBody.
+   - We ask for a descriptive prompt, image size, style, quality, and response format.
+   - Each choice sets the respective property in our DalleRequestBody.
 
 3. Build the request:
 
-- A DalleRequestBody object is serialized to JSON and sent to the Azure OpenAI Image Generation endpoint.
-- We include the environment variable apiKey in the api-key header of the request.
+   - A DalleRequestBody object is serialized to JSON and sent to the Azure OpenAI Image Generation endpoint.
+   - We include the environment variable apiKey in the api-key header of the request.
 
 4. Handle the response:
 
-- On success, we deserialize the JSON to a DalleResponse object, which contains an array of generated images (DalleResponseData).
-- On failure, we deserialize the error to DalleErrorResponse and display relevant messages in the console.
+   - On success, we deserialize the JSON to a DalleResponse object, which contains an array of generated images (DalleResponseData).
+   - On failure, we deserialize the error to DalleErrorResponse and display relevant messages in the console.
 
 5. Display results:
 
-- If response_format is url, we print the URL for the generated image.
-- If response_format is b64_json, we print the Base64-encoded output returned.
+   - If response_format is url, we print the URL for the generated image.
+   - If response_format is b64_json, we print the Base64-encoded output returned.
+
+![DALL-E 3 Generate Images](assets/DALL-E-3-Generate-Images.gif)
+
+![DALL-E 3 Generate_00](assets/generated_00-dall-e3.png)
 
 ## Additional Resources
 
-- 
-- 
-- 
+   - [How to work with the DALL-E models](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/dall-e?tabs=dalle3&WT.mc_id=AI-MVP-5004753)
+   - [Quickstart: Generate images with Azure OpenAI Service](https://learn.microsoft.com/azure/ai-services/openai/dall-e-quickstart?tabs=dalle3%2Ccommand-line%2Cjavascript-keyless%2Ctypescript-keyless&pivots=programming-language-studio&WT.mc_id=AI-MVP-5004753)
+
+## Contributing
+If you wish to contribute to the project, please fork the repository and create a pull request with your changes.
+
+## License
+This project is licensed under the MIT License.
+
+## Contact
+For any questions or inquiries, please contact the repository owner.
